@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced GSAP Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            background-color: #ebdede;
+        }
+
+        header {
+            
+            color: #2f4f4f;
+            padding: 20px;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .image-section img {
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .cta-section {
+          color: #2f4f4f;
+            padding: 50px 0;
+        }
+
+        #cta-button {
+            background-color: #c29595;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        #cta-button:hover {
+            background-color: #c295959c;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discover Stunning Wallpapers</h1>
+        <p>Transform your desktop, mobile, or tablet with our high-quality, free wallpapers.</p>
+    </header>
+
+   
+
+    <section class="image-section">
+        <img height="300px" width="300px" src="https://www.pixelstalk.net/wp-content/uploads/images6/Firewatch-HD-Wallpaper-Computer-620x349.jpg" alt="Placeholder Image">
+        <img height="300px" width="300px"  src="https://i.ytimg.com/vi/bpeEDaiyzqY/maxresdefault.jpg" alt="Placeholder Image">
+        <img height="300px" width="300px" src="https://th.bing.com/th/id/R.4b63f83138754ddd4716b5e4db7cd58e?rik=LLlMhhZkScBgsw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fe%2f7%2fa%2f845261-hiking-wallpapers-2560x1440-720p.jpg&ehk=Ui1iQ9%2bEmWIu3WJ%2bIUwUOvUc3xcwS1EWbObNi6Gbj%2fs%3d&risl=&pid=ImgRaw&r=0" alt="Placeholder Image">
+    </section>
+
+    <section class="cta-section">
+        <h2>Explore Our Top Categories</h2>
+        <p>"Immerse yourself in the tranquility of nature. Our nature wallpapers capture the essence of the outdoors, from lush forests to majestic mountains and serene beaches."</p>
+        <button id="cta-button">Explore Now</button>
+    </section>
+
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // GSAP Animations
+        gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "bounce" });
+        gsap.from(".box", { duration: 1, scale: 0, opacity: 0, stagger: 0.5, ease: "elastic" });
+        gsap.from(".image-section img", { duration: 1, y: 50, opacity: 0, stagger: 0.3, ease: "power2.out" });
+        gsap.from(".cta-section h2", { duration: 1, x: -100, opacity: 0, ease: "power2.out" });
+        gsap.from(".cta-section p", { duration: 1, x: 100, opacity: 0, ease: "power2.out", delay: 0.3 });
+        gsap.from("#cta-button", { duration: 1, scale: 0, opacity: 0, ease: "elastic", delay: 0.5 });
+
+        // Hover Animations for Boxes
+        const boxes = document.querySelectorAll(".box");
+
+        boxes.forEach((box) => {
+            box.addEventListener("mouseenter", () => {
+                gsap.to(box, { scale: 1.1, duration: 0.2 });
+            });
+
+            box.addEventListener("mouseleave", () => {
+                gsap.to(box, { scale: 1, duration: 0.2 });
+            });
+        });
+
+        // Image Hover Effect
+        const images = document.querySelectorAll(".image-section img");
+
+        images.forEach((img) => {
+            img.addEventListener("mouseenter", () => {
+                gsap.to(img, { scale: 1.1, duration: 0.3, rotate: 5 });
+            });
+
+            img.addEventListener("mouseleave", () => {
+                gsap.to(img, { scale: 1, duration: 0.3, rotate: 0 });
+            });
+        });
+
+        // Button Click Animation
+        const ctaButton = document.getElementById("cta-button");
+
+        ctaButton.addEventListener("click", () => {
+            gsap.to(ctaButton, { scale: 1.2, duration: 0.2, ease: "elastic" });
+            gsap.to(ctaButton, { scale: 1, duration: 0.2, delay: 0.2, ease: "elastic" });
+        });
+    </script>
+</body>
+</html>
